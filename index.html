@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Train Schedule</title>
+<!--Firebase-->
+
 
 <!--Bootstrap-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-"
+
 <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
@@ -14,9 +16,10 @@
     <div class="jumbotron jumbotron-dark">
         <div class="container">
           <h1 class="display-4">Train Times</h1>
-          <p class="lead">View the train schedule below.</p>
+          <p class="lead">View the current train schedule below.</p>
         </div>
       </div>
+<!--Current Schedule-->
       <table class="table table-borderless">
             <thead>
               <tr>
@@ -30,45 +33,64 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
-          
-        <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+      <!--Add Train-->
+          <div class="card">
+            <div class="card-header">
+              <h3>Add Train</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="trainName">Train Name</label>
+                <input type="text" class="form-control" id="trainName">
+                
+              <div class="form-group">
+                <label for="Destination">Destination</label>
+                <input type="text" class="form-control" id="trainName">
+              </div>
+              <div class="form-group">
+                <label for="firstTrainTime">First Train Time (HH:mm) - Military time</label>
+                <input type="text" class="form-control" id="firstTrainTime">
+              </div>
+              <div class="form-group">
+                <label for="trainFrequency">Frequency</label>
+                <input type="text" class="form-control" id="trainFrequency">
+              </div>
+            
+              <div class="form-group form-check">
+                
+                
+              </div>
+            
+            </form>
+            
+            <button id = "addTrain" class="btn btn-primary">Submit</button>
+            </div>
+          </div>  
+                
 
 
 
 </div>
+<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
 <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
