@@ -50,26 +50,34 @@ $("#addTrain").on("click", function (event) {
 // Moment
 database.ref().on("child_added", function (childSnapShot) {
     console.log(childSnapShot.val());
+    
     var trainData = childSnapShot.val();
     var convertedFirstTrain = moment(trainData.firstTrain, "HH:mm");
     console.log(convertedFirstTrain);
+    
     var differenceCurrentTimeTrainTime = moment().diff(moment(convertedFirstTrain), "minutes");
     console.log(differenceCurrentTimeTrainTime);
+    
     var timeRemaining = differenceCurrentTimeTrainTime % trainData.frequency;
+    
     var minutesAway = trainData.frequency - timeRemaining;
-    var nextArrival = moment().add(minutesAway, "minutes");
-    nextArrival = moment(nextArrival).format("HH:mm");
+    
+    var nextArrival = moment().add(minutesAway).format("LT");
+    
+    // nextArrival = moment(nextArrival).format("HH:mm");
+    
     var name = childSnapShot.val().name;
     var destination = childSnapShot.val().destination;
     var firstTrain = childSnapShot.val().firstTrain;
     var frequency = childSnapShot.val().frequency;
-// Created variable to hold data and append to html
+
+    // Created variable to hold data and append to html
     var newRow = $("<tr>").append(
         $("<td>").text(name),
         $("<td>").text(destination),
         $("<td>").text(frequency),
-        $("<td>").text(minutesAway),
         $("<td>").text(nextArrival),
+        $("<td>").text(minutesAway),
     );
     $("tbody").append(newRow);
 });
